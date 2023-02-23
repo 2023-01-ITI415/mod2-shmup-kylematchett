@@ -44,7 +44,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3046205554616081012}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 1.2
   m_Height: 2.9
@@ -97,7 +97,7 @@ MonoBehaviour:
   boundsType: 2
   keepOnScreen: 0
   radius: 2
-  isOnScreen: 1
+  screenLocs: 0
   camWidth: 0
   camHeight: 0
 --- !u!1001 &3046205554654520839

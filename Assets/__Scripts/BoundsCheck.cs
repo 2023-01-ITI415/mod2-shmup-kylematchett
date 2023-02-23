@@ -55,37 +55,48 @@ public class BoundsCheck : MonoBehaviour
         if (pos.x > camWidth + checkRadius)
         {
             pos.x = camWidth + checkRadius;
-            screenLocs = eScreenLocs.onScreen;
-            // e
+            screenLocs |= eScreenLocs.offRight;
+            // c
+            // isOnScreen = false; 
+            // a
         }
         if (pos.x < -camWidth - checkRadius)
         {
             pos.x = -camWidth - checkRadius;
-            screenLocs = eScreenLocs.onScreen;
-            // e
+            screenLocs |= eScreenLocs.offLeft;
+            // c
+            // isOnScreen = false; 
+            // a
         }
 
         if (pos.y > camHeight + checkRadius)
         {
             pos.y = camHeight + checkRadius;
-            screenLocs = eScreenLocs.onScreen;
-            // e
+            screenLocs |= eScreenLocs.offUp;
+            // c
+            // isOnScreen = false; 
+            // a
         }
         if (pos.y < -camHeight - checkRadius)
         {
             pos.y = -camHeight - checkRadius;
-            screenLocs = eScreenLocs.onScreen;
-            // e
+            screenLocs |= eScreenLocs.offDown;
+            // c
+            // isOnScreen = false; 
+            // a
         }
 
         if (keepOnScreen && !isOnScreen)
         {
-            // f
+            // d
             transform.position = pos;
-            // g
             screenLocs = eScreenLocs.onScreen;
+            // isOnScreen = true; 
+            // a
         }
     }
+
+
     public bool isOnScreen
     {
         // e
@@ -93,5 +104,15 @@ public class BoundsCheck : MonoBehaviour
         {
             return (screenLocs == eScreenLocs.onScreen);
         }
+
     }
+
+    public bool LocIs(eScreenLocs checkLoc)
+    {
+        if (checkLoc == eScreenLocs.onScreen) return isOnScreen; // a
+        return ((screenLocs & checkLoc) == checkLoc);
+        // b
+    }
+
+
 }
